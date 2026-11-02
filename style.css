@@ -1,0 +1,63 @@
+/* こつプリのサポートのページ。色はブランドブックと同じ（空・紙・赤ペン・墨）。
+   外の文字（Web フォント）は読み込まない（見た人の情報を、ほかのサービスに送らないため）。 */
+:root {
+  --sky-top: #5DA9EE;
+  --sky-bottom: #3477C9;
+  --paper: #FFFFFF;
+  --ink: #1C2533;
+  --muted: #55657A;
+  --line: #DCE6F2;
+  --pen: #D93A2F;
+  --bg: #F4F8FD;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #18212E; --ink: #E7EEF7; --muted: #A3B2C5; --line: #2A3747; --bg: #0F1620; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--sky-bottom); }
+@media (prefers-color-scheme: dark) { a { color: var(--sky-top); } }
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+.sky { background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom)); color: #fff; }
+.sky a { color: #fff; }
+header.sky .wrap { padding-block: 14px; }
+.brand { font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+.hero .wrap { padding-block: 32px 40px; }
+.hero h1 { margin: 0 0 8px; font-size: 1.9rem; line-height: 1.3; }
+.hero p { margin: 0; max-width: 34em; }
+main { padding-block: 28px 16px; }
+h1 { font-size: 1.6rem; line-height: 1.35; margin: 0 0 16px; text-wrap: balance; }
+h2 { font-size: 1.15rem; line-height: 1.4; margin: 32px 0 8px; text-wrap: balance; }
+p, ul { margin: 0 0 12px; }
+ul { padding-left: 1.3em; }
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin: 0 0 16px;
+}
+.contact { font-size: 1.15rem; font-weight: 700; word-break: break-all; }
+.note { color: var(--muted); font-size: .9rem; }
+details { border-top: 1px solid var(--line); padding: 10px 0; }
+details:last-of-type { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; font-weight: 700; }
+summary::marker { color: var(--pen); }
+details p, details ol { margin: 8px 0 0; }
+ol { padding-left: 1.4em; }
+.doc p { overflow-wrap: anywhere; }
+footer { padding-block: 24px 40px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); margin-top: 24px; }
+footer a { margin-right: 4px; }
